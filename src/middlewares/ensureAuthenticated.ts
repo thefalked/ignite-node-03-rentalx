@@ -10,7 +10,7 @@ interface IPayload {
 
 export async function ensureAuthenticated(
   req: Request,
-  res: Response,
+  _res: Response,
   next: NextFunction
 ): Promise<void> {
   const authHeader = req.headers.authorization;
@@ -22,17 +22,21 @@ export async function ensureAuthenticated(
   const [, token] = authHeader.split(" ");
 
   try {
-    const { sub: userId } = verify(
+    const { sub: user_id } = verify(
       token,
       "54b09b6c1a91b00697a72746a0706614"
     ) as IPayload;
 
     const usersRepository = new UsersRepository();
-    const user = await usersRepository.findById(userId);
+    const user = await usersRepository.findById(user_id);
 
     if (!user) {
       throw new AppError("User not found", 401);
     }
+
+    req.user = {
+      id: user_id,
+    };
 
     next();
   } catch (error) {
