@@ -1,8 +1,8 @@
 {
-  "name": "ignite-node-03-rentalx",
+  "name": "ignite-node-03-rentx",
   "version": "1.0.0",
   "main": "src/server.ts",
-  "repository": "git@github.com:thefalked/ignite-node-03-rentalx.git",
+  "repository": "git@github.com:thefalked/ignite-node-03-rentx.git",
   "author": "thefalked <giulianocrivelli@hotmail.com>",
   "license": "MIT",
   "scripts": {
