@@ -1,14 +1,16 @@
 import { CarsRepositoryInMemory } from "@modules/cars/repository/in-memory/CarsRepositoryInMemory";
 
-import { ListCarsUseCase } from "./ListAvailableCarsCase";
+import { ListAvailableCarsUseCase } from "./ListAvailableCarsCase";
 
-let listCarsUseCase: ListCarsUseCase;
+let listAvailableCarsUseCase: ListAvailableCarsUseCase;
 let carsRepositoryInMemory: CarsRepositoryInMemory;
 
 describe("List Cars", () => {
   beforeEach(() => {
     carsRepositoryInMemory = new CarsRepositoryInMemory();
-    listCarsUseCase = new ListCarsUseCase(carsRepositoryInMemory);
+    listAvailableCarsUseCase = new ListAvailableCarsUseCase(
+      carsRepositoryInMemory
+    );
   });
 
   it("Should be able to list all available cars", async () => {
@@ -22,7 +24,7 @@ describe("List Cars", () => {
       category_id: "05f17818-8834-4623-a261-4dd6d1066c41",
     });
 
-    const cars = await listCarsUseCase.execute({});
+    const cars = await listAvailableCarsUseCase.execute({});
 
     expect(cars).toEqual([car]);
   });
@@ -38,7 +40,7 @@ describe("List Cars", () => {
       category_id: "05f17818-8834-4623-a261-4dd6d1066c41",
     });
 
-    const cars = await listCarsUseCase.execute({ brand: "BMW" });
+    const cars = await listAvailableCarsUseCase.execute({ brand: "BMW" });
 
     expect(cars).toEqual([car]);
   });

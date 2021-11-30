@@ -10,7 +10,7 @@
 
 - [x] Não deve ser possível cadastrar um carro com a mesma **placa**.
 - [x] O carro deve ser cadastrado com disponibilidade **true** por padrão.
-- [ ] O usuário responsável pelo cadastro deve ser um usuário **admin**.
+- [x] O usuário responsável pelo cadastro deve ser um usuário **admin**.
 
 # Listagem de carros
 
@@ -23,7 +23,7 @@
 
 **RN**
 
-- [ ] O usuário não precisa estar logado para listar os carros disponíveis.
+- [x] O usuário não precisa estar logado para listar os carros disponíveis.
 
 # Cadastro de especificação no carro
 
