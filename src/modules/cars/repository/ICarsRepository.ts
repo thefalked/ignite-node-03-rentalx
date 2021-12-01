@@ -14,6 +14,7 @@ interface ICarsRepository {
     category_id,
     name,
   }: IFindAllAvailableProps): Promise<Car[]>;
+  findById(id: string): Promise<Car>;
 }
 
 export { ICarsRepository };

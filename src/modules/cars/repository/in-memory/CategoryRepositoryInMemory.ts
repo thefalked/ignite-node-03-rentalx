@@ -6,7 +6,7 @@ import {
 } from "../ICategoriesRepository";
 
 class CategoriesRepositoryInMemory implements ICategoriesRepository {
-  private categories: Category[] = [];
+  categories: Category[] = [];
 
   async findByName(name: string): Promise<Category> {
     const category = this.categories.find((category) => category.name === name);
