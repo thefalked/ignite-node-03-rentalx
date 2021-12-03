@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+// temporary files
+tmp/avatar/*
+tmp/cars/*
