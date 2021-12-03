@@ -16,10 +16,10 @@
 
 **RF**
 
-- [ ] Deve ser possível todos os carros disponíveis para locação.
-- [ ] Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
-- [ ] Deve ser possível listar todos os carros disponíveis pelo nome da marca.
-- [ ] Deve ser possível listar todos os carros disponíveis pelo nome do carro.
+- [x] Deve ser possível todos os carros disponíveis para locação.
+- [x] Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
+- [x] Deve ser possível listar todos os carros disponíveis pelo nome da marca.
+- [x] Deve ser possível listar todos os carros disponíveis pelo nome do carro.
 
 **RN**
 
@@ -29,15 +29,13 @@
 
 **RF**
 
-- [ ] Deve ser possível cadastrar uma nova especificação para unm carro.
-- [ ] Deve ser possível listar todas as especificações.
-- [ ] Deve ser possível listar todos os carros.
+- [x] Deve ser possível cadastrar uma nova especificação para um carro.
 
 **RN**
 
-- [ ] Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
-- [ ] Não deve ser possível cadastrar uma especificação duplicada para um mesmo carro.
-- [ ] O usuário responsável pelo cadastro deve ser um usuário **admin**.
+- [x] Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
+- [x] Não deve ser possível cadastrar uma especificação duplicada para um mesmo carro.
+- [x] O usuário responsável pelo cadastro deve ser um usuário **admin**.
 
 # Cadastro de imagens do carro
 
