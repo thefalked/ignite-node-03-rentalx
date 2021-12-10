@@ -4,7 +4,7 @@ import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCarDTO";
 import {
   ICarsRepository,
   IFindAllAvailableProps,
-} from "@modules/cars/repository/ICarsRepository";
+} from "@modules/cars/repositories/ICarsRepository";
 
 import { Car } from "../entities/Car";
 
