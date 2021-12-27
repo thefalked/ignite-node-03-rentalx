@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "CHOKIDAR_USEPOLLING=true ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
-    "test": "jest --watch",
+    "test": "NODE_ENV=test jest --watch",
     "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
   },
   "dependencies": {
@@ -22,7 +22,7 @@
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "supertest": "^6.1.6",
-    "swagger-ui-express": "^4.2.0",
+    "swagger-ui-express": "^4.3.0",
     "tsyringe": "^4.6.0",
     "typeorm": "^0.2.37",
     "uuid": "^8.3.2"
