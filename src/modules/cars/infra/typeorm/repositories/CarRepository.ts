@@ -25,7 +25,7 @@ class CarsRepository implements ICarsRepository {
     category_id,
     id,
   }: ICreateCarDTO): Promise<Car> {
-    const car = await this.repository.create({
+    const car = this.repository.create({
       name,
       description,
       daily_rate,
@@ -52,8 +52,8 @@ class CarsRepository implements ICarsRepository {
     category_id,
     name,
   }: IFindAllAvailableProps): Promise<Car[]> {
-    const carsQuery = await this.repository
-      .createQueryBuilder("c")
+    const carsQuery = this.repository
+      .createQueryBuilder()
       .where("available = :available", { available: true });
 
     if (brand) {
