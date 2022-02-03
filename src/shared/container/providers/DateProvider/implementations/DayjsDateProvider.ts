@@ -31,6 +31,10 @@ class DayjsDateProvider implements IDateProvider {
   compareInDays(start_date: Date, end_date: Date): number {
     return dayjs(start_date).diff(end_date, "days");
   }
+
+  addDays(date: Date, days: number): Date {
+    return dayjs(date).add(days, "day").toDate();
+  }
 }
 
 export { DayjsDateProvider };
