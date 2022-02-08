@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
-import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
-import { deleteFile } from "@utils/file";
+import { IUsersRepository } from "@modules/accounts/repositories/IUserRepository";
+import { IStorageProvider } from "@shared/container/providers/StorageProvider/IStorageProvider";
 
 interface IResquest {
   user_id: string;
@@ -12,15 +12,19 @@ interface IResquest {
 class UpdateUserAvatarUseCase {
   constructor(
     @inject("UsersRepository")
-    private usersRepository: UsersRepository
+    private usersRepository: IUsersRepository,
+    @inject("StorageProvider")
+    private storageProvider: IStorageProvider
   ) {}
 
   async execute({ user_id, avatar_file }: IResquest): Promise<void> {
     const user = await this.usersRepository.findById(user_id);
 
     if (user.avatar) {
-      await deleteFile(`./tmp/avatar/${user.avatar}`);
+      await this.storageProvider.deleteFile(user.avatar, "avatars");
     }
+
+    await this.storageProvider.saveFile(avatar_file, "avatars");
 
     user.avatar = avatar_file;
 

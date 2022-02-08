@@ -106,3 +106,4 @@ dist
 // temporary files
 tmp/avatar/*
 tmp/cars/*
+tmp/*
