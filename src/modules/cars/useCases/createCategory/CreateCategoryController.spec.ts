@@ -31,7 +31,7 @@ describe("Create Category Controller", () => {
 
   it("Should be able to create a new category", async () => {
     const {
-      body: { refresh_token },
+      body: { token },
     } = await request(app).post("/sessions").send({
       email: "admin@rentx.com",
       password: "admin",
@@ -40,7 +40,7 @@ describe("Create Category Controller", () => {
     const response = await request(app)
       .post("/categories")
       .set({
-        authorization: `Bearer ${refresh_token}`,
+        authorization: `Bearer ${token}`,
       })
       .send({
         name: "teste",
@@ -52,7 +52,7 @@ describe("Create Category Controller", () => {
 
   it("Should not be able to create a new category with an existing name", async () => {
     const {
-      body: { refresh_token },
+      body: { token },
     } = await request(app).post("/sessions").send({
       email: "admin@rentx.com",
       password: "admin",
@@ -61,7 +61,7 @@ describe("Create Category Controller", () => {
     const response = await request(app)
       .post("/categories")
       .set({
-        authorization: `Bearer ${refresh_token}`,
+        authorization: `Bearer ${token}`,
       })
       .send({
         name: "teste",
