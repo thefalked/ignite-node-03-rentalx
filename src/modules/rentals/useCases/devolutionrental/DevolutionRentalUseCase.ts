@@ -1,14 +1,13 @@
 import { inject, injectable } from "tsyringe";
 
-import { CarsRepository } from "@modules/cars/infra/typeorm/repositories/CarRepository";
+import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
-import { RentalsRepository } from "@modules/rentals/infra/typeorm/repositories/RentalsRepository";
+import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
 
 interface IRequest {
   id: string;
-  user_id: string;
 }
 
 @injectable()
@@ -17,12 +16,12 @@ class DevolutionRentalUseCase {
     @inject("DateProvider")
     private dateProvider: IDateProvider,
     @inject("RentalsRepository")
-    private rentalsRepository: RentalsRepository,
+    private rentalsRepository: IRentalsRepository,
     @inject("CarsRepository")
-    private carsRepository: CarsRepository
+    private carsRepository: ICarsRepository
   ) {}
 
-  async execute({ id, user_id }: IRequest): Promise<Rental> {
+  async execute({ id }: IRequest): Promise<Rental> {
     const rental = await this.rentalsRepository.findById(id);
     const car = await this.carsRepository.findById(rental.car_id);
 
