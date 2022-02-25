@@ -108,5 +108,11 @@ tmp/avatar/*
 tmp/cars/*
 tmp/*
 
+# allow tmp folder with gitkeep
+!tmp/.gitkeep
+
 # keys
 .keys/
+
+# ORM Config
+ormconfig.json
