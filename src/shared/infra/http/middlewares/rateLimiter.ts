@@ -9,7 +9,7 @@ const url = `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`;
 const redisClient = createClient({ url });
 
 const limiter = new RateLimiterRedis({
-  storeClient: redisClient,
+  storeClient: redisClient.connect(),
   keyPrefix: "rateLimiter",
   points: 5, // 5 requests
   duration: 5, // per 5 second by IP
