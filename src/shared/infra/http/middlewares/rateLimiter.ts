@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import { RateLimiterRedis } from "rate-limiter-flexible";
-import redis from "redis";
+import { createClient } from "redis";
 
 import { AppError } from "@shared/errors/AppError";
 
-const redisClient = redis.createClient({
-  url: `${process.env.REDIS_URL}:${process.env.REDIS_PORT}`,
-});
+const url = `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`;
+
+const redisClient = createClient({ url });
 
 const limiter = new RateLimiterRedis({
   storeClient: redisClient,
